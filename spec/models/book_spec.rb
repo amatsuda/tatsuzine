@@ -13,6 +13,7 @@ describe Book do
 
   describe '.coming_soon' do
     specify { Book.coming_soon.should have(1).book }
-    specify { Book.coming_soon.first.should == @hfr }
+    subject { Book.coming_soon }
+    its(:first) { should == @hfr }
   end
 end
