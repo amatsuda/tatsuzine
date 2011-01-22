@@ -1,5 +1,10 @@
 <h1>Listing books</h1>
 
+<%= form_tag books_url, :method => 'get' do %>
+  <%= text_field_tag :status %>
+  <%= submit_tag '検索' %>
+<% end -%>
+
 <table>
   <tr>
     <th>Title</th>

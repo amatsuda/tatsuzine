@@ -2,7 +2,14 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.xml
   def index
-    @books = Book.all
+    @books = case params[:status]
+    when 'coming_soon'
+      Book.coming_soon
+    when 'on_sale'
+      Book.on_sale
+    else
+      Book.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
